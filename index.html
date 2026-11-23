@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tadora - Özenle seçilmiş yemek tarifleri ve lezzet koleksiyonu.">
+    <title>TADORA | Lezzetin Zarif Hâli</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="#home" class="logo">TADORA<span>.</span></a>
+
+        <nav class="nav" id="nav" aria-label="Ana gezinme">
+            <a href="#home">Ana Sayfa</a>
+            <a href="#collections">Koleksiyon</a>
+            <a href="#recipes">Tarifler</a>
+            <a href="#about">Hakkımızda</a>
+        </nav>
+
+        <div class="header-actions">
+            <button type="button" class="theme-button" id="themeToggle" aria-label="Açık temaya geç">☼</button>
+
+            <button type="button" class="header-add" id="openAdd">
+                <span>＋</span> Tarif Ekle
+            </button>
+
+            <button type="button" class="menu-button" id="menuToggle" aria-label="Menüyü aç" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+
+            <img class="hero-image" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=2200&q=90" alt="" aria-hidden="true">
+            <div class="hero-shade"></div>
+
+            <div class="hero-content">
+
+                <span class="hero-kicker">
+                    <span></span> THE ART OF TASTE
+                </span>
+
+                <h1>
+                    Lezzetin<br>
+                    <em>en zarif hâli.</em>
+                </h1>
+
+                <p>
+                    Özenle seçilmiş tarifler, ilham veren sunumlar
+                    ve mutfağında keşfedeceğin yeni lezzetler.
+                </p>
+
+                <a href="#recipes" class="gold-button">
+                    Tarifleri Keşfet <span>↗</span>
+                </a>
+
+            </div>
+
+            <div class="hero-caption">
+                <span>01 — TADORA COLLECTION</span>
+                <span>EST. 2026</span>
+            </div>
+
+            <div class="hero-side-text">CULINARY EXPERIENCE</div>
+
+        </section>
+
+        <!-- KISA MARKA ALANI -->
+        <section class="brand-strip">
+            <span>GOOD INGREDIENTS</span>
+            <i>✦</i>
+            <span>EXCEPTIONAL TASTE</span>
+            <i>✦</i>
+            <span>INSPIRED RECIPES</span>
+            <i>✦</i>
+            <span>MADE WITH CARE</span>
+        </section>
+
+        <!-- KATEGORİLER -->
+        <section class="collections section" id="collections">
+
+            <div class="section-top">
+                <div>
+                    <span class="section-label">EXPLORE BY CATEGORY</span>
+                    <h2>Lezzet <em>koleksiyonu.</em></h2>
+                </div>
+
+                <p>Aradığın lezzeti kategoriler arasında keşfet.</p>
+            </div>
+
+            <div class="collection-grid">
+
+                <button type="button" class="collection-card collection-large" data-category="Ana Yemek">
+                    <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=1000&q=85" alt="Fırında tavuk">
+                    <span class="collection-number">01</span>
+                    <div>
+                        <small>ANA YEMEKLER</small>
+                        <h3>Ana Yemek</h3>
+                    </div>
+                    <span class="collection-arrow">↗</span>
+                </button>
+
+                <button type="button" class="collection-card" data-category="Tatlı">
+                    <img src="https://images.unsplash.com/photo-1540337706094-da10342c93d8?w=900&q=85" alt="Çikolatalı ıslak kek">
+                    <span class="collection-number">02</span>
+                    <div>
+                        <small>TATLI KOLEKSİYONU</small>
+                        <h3>Tatlı</h3>
+                    </div>
+                    <span class="collection-arrow">↗</span>
+                </button>
+
+                <button type="button" class="collection-card" data-category="Kahvaltı">
+                    <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=800&q=85" alt="Pancake">
+                    <span class="collection-number">03</span>
+                    <div>
+                        <small>GÜNE GÜZEL BAŞLA</small>
+                        <h3>Kahvaltı</h3>
+                    </div>
+                    <span class="collection-arrow">↗</span>
+                </button>
+
+                <button type="button" class="collection-card" data-category="Salata">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=85" alt="Taze salata">
+                    <span class="collection-number">04</span>
+                    <div>
+                        <small>TAZE VE HAFİF</small>
+                        <h3>Salata</h3>
+                    </div>
+                    <span class="collection-arrow">↗</span>
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ÖNE ÇIKAN TARİF -->
+        <section class="signature section">
+
+            <div class="signature-image">
+                <img id="signatureImage" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=1200&q=90" alt="Kremalı mantarlı makarna, parmesan ve taze otlarla servis edilmiş" loading="lazy">
+                <span class="image-tag">EDITOR'S CHOICE</span>
+            </div>
+
+            <div class="signature-content">
+
+                <span class="section-label">THE SIGNATURE DISH</span>
+
+                <h2>Bir tabaktan<br><em>daha fazlası.</em></h2>
+
+                <p id="signatureDescription">
+                    Kremalı mantar sosu, taze sarımsak ve parmesan
+                    peyniriyle hazırlanan, dengeli aromalara sahip
+                    özel bir makarna tarifi.
+                </p>
+
+                <div class="signature-details">
+                    <div>
+                        <span>HAZIRLIK</span>
+                        <strong id="signaturePrep">10 dk</strong>
+                    </div>
+
+                    <div>
+                        <span>PİŞİRME</span>
+                        <strong id="signatureCook">15 dk</strong>
+                    </div>
+
+                    <div>
+                        <span>PORSİYON</span>
+                        <strong id="signatureServings">2 kişi</strong>
+                    </div>
+                </div>
+
+                <button type="button" class="outline-button" id="signatureButton">
+                    Tarifi İncele <span>↗</span>
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- TARİFLER -->
+        <section class="recipes section" id="recipes">
+
+            <div class="section-top recipe-heading">
+
+                <div>
+                    <span class="section-label">THE TADORA COLLECTION</span>
+                    <h2>Seçkin <em>tarifler.</em></h2>
+                </div>
+
+                <div class="recipe-search">
+                    <span>⌕</span>
+                    <input type="search" id="searchInput" aria-label="Tarif veya malzeme ara" placeholder="Tarif veya malzeme ara...">
+                </div>
+
+            </div>
+
+            <!-- FİLTRELER -->
+            <div class="filter-bar">
+
+                <div class="filter-list">
+                    <button type="button" class="filter-button active" data-filter="Tümü" aria-pressed="true">Tümü</button>
+                    <button type="button" class="filter-button" data-filter="Kahvaltı" aria-pressed="false">Kahvaltı</button>
+                    <button type="button" class="filter-button" data-filter="Ana Yemek" aria-pressed="false">Ana Yemek</button>
+                    <button type="button" class="filter-button" data-filter="Salata" aria-pressed="false">Salata</button>
+                    <button type="button" class="filter-button" data-filter="Tatlı" aria-pressed="false">Tatlı</button>
+                    <button type="button" class="filter-button" data-filter="Çorba" aria-pressed="false">Çorba</button>
+                </div>
+
+                <div class="filter-actions">
+                    <button type="button" class="favorite-filter" id="favoriteFilter" aria-pressed="false">♡ Favoriler</button>
+
+                    <select id="sortSelect" aria-label="Tarifleri sırala">
+                        <option value="default">Sıralama</option>
+                        <option value="name">İsme göre</option>
+                        <option value="time">Hazırlama süresi</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- TARİF KARTLARI -->
+            <div class="recipe-grid" id="recipeGrid"></div>
+
+            <div class="empty-state hidden" id="emptyState">
+                <span>⌕</span>
+                <h3>Tarif bulunamadı.</h3>
+                <p>Farklı bir arama veya kategori deneyebilirsin.</p>
+            </div>
+
+        </section>
+
+        <!-- GÖRSEL ARA ALAN -->
+        <section class="visual-banner">
+            <img class="visual-banner-image" src="https://images.unsplash.com/photo-1759335514530-43ac3c515a72?w=1800&q=85" alt="" aria-hidden="true" loading="lazy">
+            <div class="visual-banner-content">
+                <span>THE BEAUTY OF COOKING</span>
+                <h2>Good food.<br><em>Beautiful moments.</em></h2>
+            </div>
+        </section>
+
+        <!-- TARİF EKLEME ALANI -->
+        <section class="create-section" id="about">
+
+            <div class="create-content">
+                <span class="section-label">YOUR RECIPES, YOUR COLLECTION</span>
+                <h2>Mutfağının<br><em>imzasını oluştur.</em></h2>
+                <p>
+                    Kendi tariflerini ekle, düzenle ve kişisel
+                    tarif koleksiyonunu oluştur.
+                </p>
+
+                <button type="button" class="gold-button" id="bottomAdd">
+                    Yeni Tarif Oluştur <span>＋</span>
+                </button>
+            </div>
+
+            <div class="create-decoration">
+                <span>T</span>
+                <small>THE ART OF TASTE</small>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-top">
+            <a href="#home" class="logo">TADORA<span>.</span></a>
+            <p>Lezzetin estetikle buluştuğu yer.</p>
+            <a href="#home" class="back-top">Yukarı çık ↑</a>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 TADORA</span>
+            <span>THE ART OF TASTE</span>
+            <span>ALL RIGHTS RESERVED</span>
+        </div>
+
+    </footer>
+
+    <!-- TARİF DETAY MODALI -->
+    <div class="modal" id="detailModal" role="dialog" aria-modal="true" aria-label="Tarif detayları">
+
+        <div class="modal-panel detail-panel">
+
+            <button type="button" class="modal-close" id="closeDetail" aria-label="Tarif detayını kapat">×</button>
+
+            <div id="detailContent"></div>
+
+        </div>
+
+    </div>
+
+    <!-- TARİF EKLEME / DÜZENLEME MODALI -->
+    <div class="modal" id="formModal" role="dialog" aria-modal="true" aria-label="Tarif ekleme ve düzenleme formu">
+
+        <div class="modal-panel form-panel">
+
+            <button type="button" class="modal-close" id="closeForm" aria-label="Tarif formunu kapat">×</button>
+
+            <div class="form-heading">
+                <span class="section-label">TADORA RECIPE STUDIO</span>
+                <h2 id="formTitle">Yeni tarif <em>oluştur.</em></h2>
+                <p>Tarif bilgilerini eksiksiz doldur.</p>
+            </div>
+
+            <form id="recipeForm">
+
+                <input type="hidden" id="recipeId">
+
+                <div class="form-group">
+                    <label for="recipeName">Tarif adı</label>
+                    <input id="recipeName" type="text" placeholder="Örn. Kremalı mantarlı makarna" required>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="recipeCategory">Kategori</label>
+                        <select id="recipeCategory" required>
+                            <option value="">Kategori seç</option>
+                            <option>Kahvaltı</option>
+                            <option>Ana Yemek</option>
+                            <option>Salata</option>
+                            <option>Tatlı</option>
+                            <option>Çorba</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipeServings">Kaç kişilik?</label>
+                        <input id="recipeServings" type="number" min="1" value="2" required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="recipePrep">Hazırlık süresi (dk)</label>
+                        <input id="recipePrep" type="number" min="0" placeholder="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipeCook">Pişirme süresi (dk)</label>
+                        <input id="recipeCook" type="number" min="0" placeholder="20" required>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="recipeImage">Yemek fotoğrafı bağlantısı</label>
+                    <input id="recipeImage" type="url" placeholder="https://...">
+                </div>
+
+                <div class="form-group">
+                    <label for="recipeDescription">Tarif açıklaması</label>
+                    <textarea id="recipeDescription" rows="3" placeholder="Tarifin içeriğini ve lezzet özelliklerini açıklayın..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipeIngredients">Malzemeler</label>
+                    <textarea id="recipeIngredients" rows="6" placeholder="250 g makarna&#10;200 ml krema&#10;2 diş sarımsak" required></textarea>
+                    <small>Her malzemeyi ayrı bir satıra yaz.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipeSteps">Hazırlanışı</label>
+                    <textarea id="recipeSteps" rows="7" placeholder="Makarnayı haşlayın.&#10;Mantarları soteleyin.&#10;Sosu hazırlayıp makarnayla birleştirin." required></textarea>
+                    <small>Her hazırlama aşamasını ayrı bir satıra yaz.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipeTip">Püf noktası</label>
+                    <textarea id="recipeTip" rows="3" placeholder="Tarifin daha iyi olması için öneriniz..."></textarea>
+                </div>
+
+                <button class="submit-button" type="submit">
+                    <span id="submitText">Tarifi Kaydet</span>
+                    <span>↗</span>
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- BİLDİRİM -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

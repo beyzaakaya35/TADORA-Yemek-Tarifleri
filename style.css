@@ -1,0 +1,1726 @@
+/* =========================
+   TADORA - BLACK & GOLD
+========================= */
+
+:root {
+    --bg: #101010;
+    --surface: #191919;
+    --surface-2: #202020;
+    --text: #f3efe7;
+    --muted: #a39c91;
+    --gold: #c6a66b;
+    --gold-ink: #17130e;
+    --gold-hover: #e2c994;
+    --gold-light: #e2c994;
+    --line: #34312c;
+    --header: rgba(16, 16, 16, 0.94);
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+body.light {
+    --bg: #f4f0e8;
+    --surface: #fffdf8;
+    --surface-2: #eae4d9;
+    --text: #24201b;
+    --muted: #797168;
+    --gold: #85612f;
+    --gold-ink: #fffdf8;
+    --gold-hover: #705326;
+    --gold-light: #b38e53;
+    --line: #ded6c9;
+    --header: rgba(244, 240, 232, 0.95);
+    --shadow: 0 20px 60px rgba(50, 40, 25, 0.1);
+}
+
+/* GENEL AYARLAR */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+    transition: background .3s, color .3s;
+    overflow-x: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.section {
+    width: min(1320px, 88%);
+    margin: auto;
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+.section-label {
+    display: block;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    margin-bottom: 15px;
+}
+
+/* HEADER */
+
+.header {
+    height: 86px;
+    padding: 0 6%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--header);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--line);
+}
+
+.logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.nav a {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.nav a:hover {
+    color: var(--gold);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.theme-button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--gold);
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.header-add {
+    background: var(--gold);
+    color: var(--gold-ink);
+    border: none;
+    padding: 13px 19px;
+    font-size: 11px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.header-add:hover {
+    background: var(--gold-hover);
+}
+
+.header-add span {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 25px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 720px;
+    height: min(820px, 88vh);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.02);
+    animation: heroZoom 12s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+    from {
+        transform: scale(1.02);
+    }
+
+    to {
+        transform: scale(1.09);
+    }
+}
+
+.hero-shade {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 5, .9) 0%,
+            rgba(5, 5, 5, .65) 42%,
+            rgba(5, 5, 5, .12) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(0, 0, 0, .4),
+            transparent 35%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin-left: 10%;
+    max-width: 650px;
+}
+
+.hero-kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #e0c58f;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.hero-kicker span {
+    width: 28px;
+    height: 1px;
+    background: #c6a66b;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(70px, 8vw, 112px);
+    font-weight: 500;
+    line-height: .91;
+    letter-spacing: -3px;
+    margin: 32px 0;
+}
+
+.hero h1 em {
+    color: var(--gold-light);
+    font-weight: 500;
+}
+
+.hero-content p {
+    max-width: 390px;
+    color: rgba(255, 255, 255, .78);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.gold-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 17px 23px;
+    background: var(--gold);
+    color: var(--gold-ink);
+    border: 1px solid var(--gold);
+    font-size: 11px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.gold-button:hover {
+    background: transparent;
+    color: var(--gold-light);
+}
+
+.hero-content .gold-button {
+    margin-top: 35px;
+}
+
+.gold-button span {
+    font-size: 17px;
+}
+
+.hero-caption {
+    position: absolute;
+    bottom: 28px;
+    left: 6%;
+    right: 6%;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, .7);
+    font-size: 9px;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+.hero-side-text {
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    writing-mode: vertical-rl;
+    color: rgba(255, 255, 255, .55);
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+/* MARKA ŞERİDİ */
+
+.brand-strip {
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.brand-strip i {
+    color: var(--gold);
+    font-size: 14px;
+    font-style: normal;
+}
+
+/* BÖLÜM BAŞLIKLARI */
+
+.section-top {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.section-top h2,
+.signature-content h2,
+.create-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 500;
+    line-height: 1;
+}
+
+.section-top h2 em,
+.signature-content h2 em,
+.create-content h2 em {
+    color: var(--gold);
+    font-weight: 500;
+}
+
+.section-top > p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+/* KATEGORİLER */
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr 1fr;
+    grid-template-rows: 230px 230px;
+    gap: 17px;
+}
+
+.collection-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    text-align: left;
+    color: white;
+}
+
+.collection-large {
+    grid-row: span 2;
+}
+
+.collection-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, .85),
+        transparent 70%
+    );
+}
+
+.collection-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s;
+}
+
+.collection-card:hover img {
+    transform: scale(1.08);
+}
+
+.collection-card > div {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    z-index: 2;
+}
+
+.collection-card small {
+    color: #dfc38d;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.collection-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.collection-number {
+    position: absolute;
+    top: 20px;
+    left: 22px;
+    z-index: 2;
+    font-size: 10px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.collection-arrow {
+    position: absolute;
+    right: 22px;
+    bottom: 28px;
+    z-index: 2;
+    color: var(--gold-light);
+    font-size: 22px;
+}
+
+/* ÖNE ÇIKAN TARİF */
+
+.signature {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 0;
+    margin: 0;
+}
+
+.signature-image {
+    min-height: 550px;
+    position: relative;
+    overflow: hidden;
+}
+
+.signature-image img {
+    height: 100%;
+    min-height: 550px;
+    transition: transform .6s;
+}
+
+.signature-image:hover img {
+    transform: scale(1.04);
+}
+
+.image-tag {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    padding: 11px 15px;
+    background: var(--gold);
+    color: var(--gold-ink);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.signature-content {
+    padding: 70px 11%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.signature-content h2 {
+    font-size: clamp(48px, 5vw, 70px);
+    margin-bottom: 25px;
+}
+
+.signature-content > p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    max-width: 390px;
+}
+
+.signature-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 30px 0;
+    width: 100%;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 20px 0;
+}
+
+.signature-details div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.signature-details span {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.signature-details strong {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.outline-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    padding: 15px 22px;
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.outline-button:hover {
+    background: var(--gold);
+    color: var(--gold-ink);
+}
+
+/* TARİF BÖLÜMÜ */
+
+.recipe-heading {
+    gap: 25px;
+}
+
+.recipe-search {
+    width: 300px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 15px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+}
+
+.recipe-search span {
+    color: var(--gold);
+    font-size: 23px;
+}
+
+.recipe-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-size: 12px;
+}
+
+.recipe-search input::placeholder {
+    color: var(--muted);
+}
+
+.filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 17px 0;
+    margin-bottom: 35px;
+}
+
+.filter-list,
+.filter-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.filter-button,
+.favorite-filter {
+    padding: 10px 15px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--gold-ink);
+}
+
+.favorite-filter {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+.favorite-filter.active {
+    background: var(--gold);
+    color: var(--gold-ink);
+}
+
+#sortSelect {
+    height: 37px;
+    padding: 0 12px;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--line);
+    font-size: 11px;
+    outline: none;
+}
+
+/* TARİF KARTLARI */
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px 23px;
+}
+
+.recipe-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.recipe-image-wrap {
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .6s;
+}
+
+.recipe-card:hover .recipe-image {
+    transform: scale(1.06);
+}
+
+.recipe-category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(16, 16, 16, .9);
+    color: var(--gold-light);
+    padding: 9px 12px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.favorite-button {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, .95);
+    color: #29231b;
+    font-size: 20px;
+}
+
+.favorite-button.active {
+    color: #a13d3d;
+}
+
+.recipe-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 23px;
+}
+
+.recipe-meta {
+    display: flex;
+    gap: 16px;
+    color: var(--gold);
+    font-size: 11px;
+    margin-bottom: 13px;
+}
+
+.recipe-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 29px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.recipe-description {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.75;
+    min-height: 4.8em;
+    max-height: 5.25em;
+    overflow: hidden;
+}
+
+.recipe-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    margin-top: auto;
+    padding-top: 17px;
+}
+
+.recipe-card-footer span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.detail-button {
+    background: transparent;
+    border: none;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.admin-actions button {
+    padding: 7px 11px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.admin-actions button:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.empty-state {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.empty-state > span {
+    font-size: 45px;
+    color: var(--gold);
+}
+
+.empty-state h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 35px;
+    margin: 15px 0;
+}
+
+.empty-state p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* GÖRSEL BANNER */
+
+.visual-banner {
+    height: 480px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.visual-banner-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.visual-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .62);
+}
+
+.visual-banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.visual-banner-content > span {
+    color: var(--gold-light);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.visual-banner h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(48px, 7vw, 85px);
+    font-weight: 500;
+    line-height: 1.05;
+    margin-top: 25px;
+}
+
+.visual-banner h2 em {
+    color: var(--gold-light);
+}
+
+/* TARİF EKLEME ALANI */
+
+.create-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 100px 10%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+}
+
+.create-content {
+    max-width: 600px;
+}
+
+.create-content h2 {
+    font-size: clamp(48px, 6vw, 75px);
+}
+
+.create-content p {
+    max-width: 400px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 22px 0 30px;
+}
+
+.create-decoration {
+    width: 250px;
+    height: 250px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.create-decoration span {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 150px;
+    line-height: .9;
+}
+
+.create-decoration small {
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+/* FOOTER */
+
+.footer {
+    padding: 45px 6% 25px;
+}
+
+.footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid var(--line);
+}
+
+.footer-top p,
+.back-top {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.back-top:hover {
+    color: var(--gold);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding-top: 22px;
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, .82);
+    overflow-y: auto;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-panel {
+    width: min(760px, 100%);
+    max-height: 92vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 40px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    animation: modalEnter .25s ease;
+}
+
+@keyframes modalEnter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 13px;
+    right: 20px;
+    z-index: 3;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 32px;
+}
+
+.form-heading {
+    margin-bottom: 30px;
+}
+
+.form-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 44px;
+    font-weight: 500;
+}
+
+.form-heading h2 em {
+    color: var(--gold);
+}
+
+.form-heading p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* FORM */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 19px;
+}
+
+.form-group label {
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.form-group small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+    font-size: 12px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--gold);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.submit-button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 17px;
+    border: none;
+    background: var(--gold);
+    color: var(--gold-ink);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* TARİF DETAYI */
+
+.detail-image {
+    height: 340px;
+    margin-bottom: 25px;
+}
+
+.detail-label {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.detail-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.05;
+    margin: 10px 0 15px;
+}
+
+.detail-description {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.detail-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 19px 0;
+    margin: 22px 0 30px;
+}
+
+.detail-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.detail-info span {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.detail-info strong {
+    color: var(--gold);
+    font-size: 13px;
+}
+
+.detail-columns {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 35px;
+}
+
+.detail-columns h3,
+.detail-tip h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.ingredient-list {
+    list-style: none;
+}
+
+.ingredient-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.steps-list {
+    padding-left: 20px;
+}
+
+.steps-list li {
+    padding: 0 0 16px 6px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.steps-list li::marker {
+    color: var(--gold);
+    font-weight: 800;
+}
+
+.detail-tip {
+    margin-top: 30px;
+    padding: 22px;
+    background: var(--surface-2);
+    border-left: 2px solid var(--gold);
+}
+
+.detail-tip p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* TOAST BİLDİRİMİ */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 500;
+    padding: 15px 22px;
+    background: var(--gold);
+    color: var(--gold-ink);
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: .3s;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+
+    .nav {
+        gap: 18px;
+    }
+
+    .collection-grid {
+        grid-template-rows: 200px 200px;
+    }
+
+    .recipe-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .signature-content {
+        padding: 34px;
+    }
+
+    .signature-details {
+        gap: 12px;
+    }
+
+}
+
+/* MOBİL */
+
+@media (max-width: 700px) {
+
+    .header {
+        height: 72px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 31px;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 25px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav.open {
+        display: flex;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .header-actions {
+        gap: 8px;
+    }
+
+    .header-add {
+        padding: 11px;
+        font-size: 10px;
+    }
+
+    .theme-button {
+        width: 35px;
+        height: 35px;
+    }
+
+    .hero {
+        height: 690px;
+        min-height: 590px;
+    }
+
+    .hero-content {
+        margin: 0 7%;
+    }
+
+    .hero h1 {
+        font-size: clamp(54px, 13vw, 68px);
+        letter-spacing: -1.5px;
+    }
+
+    .hero-content p {
+        font-size: 12px;
+    }
+
+    .hero-side-text {
+        display: none;
+    }
+
+    .hero-caption {
+        font-size: 8px;
+    }
+
+    .brand-strip {
+        gap: 13px;
+        padding: 18px;
+        font-size: 8px;
+    }
+
+    .section {
+        width: 90%;
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    .section-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .section-top h2 {
+        font-size: 43px;
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 250px 190px 190px;
+        gap: 10px;
+    }
+
+    .collection-large {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+
+    .collection-card h3 {
+        font-size: 25px;
+    }
+
+    .collection-card > div {
+        left: 14px;
+        bottom: 16px;
+    }
+
+    .collection-number {
+        left: 14px;
+        top: 14px;
+    }
+
+    .collection-arrow {
+        right: 14px;
+        bottom: 18px;
+    }
+
+    .signature {
+        grid-template-columns: 1fr;
+    }
+
+    .signature-image,
+    .signature-image img {
+        min-height: 260px;
+        height: 260px;
+    }
+
+    .signature-content {
+        padding: 34px 7%;
+    }
+
+    .signature-content h2 {
+        font-size: 49px;
+    }
+
+    .signature-details {
+        gap: 20px;
+    }
+
+    .signature-details strong {
+        font-size: 19px;
+    }
+
+    .recipe-heading {
+        gap: 25px;
+    }
+
+    .recipe-search {
+        width: 100%;
+    }
+
+    .filter-bar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .filter-list {
+        gap: 7px;
+    }
+
+    .filter-button,
+    .favorite-filter {
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+
+    .filter-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .recipe-grid {
+        grid-template-columns: 1fr;
+        gap: 23px;
+    }
+
+    .recipe-image-wrap {
+        height: 245px;
+    }
+
+    .recipe-meta {
+        font-size: 11px;
+    }
+
+    .recipe-description {
+        font-size: 13px;
+    }
+
+    .visual-banner {
+        height: 370px;
+    }
+
+    .visual-banner h2 {
+        font-size: 53px;
+    }
+
+    .create-section {
+        padding: 75px 7%;
+    }
+
+    .create-decoration {
+        display: none;
+    }
+
+    .create-content h2 {
+        font-size: 55px;
+    }
+
+    .footer-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-bottom {
+        flex-wrap: wrap;
+        font-size: 8px;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-panel {
+        padding: 35px 19px;
+    }
+
+    .detail-image {
+        height: 230px;
+    }
+
+    .detail-title {
+        font-size: 36px;
+    }
+
+    .detail-columns {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .toast {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        text-align: center;
+    }
+
+}
+
+/* ÖNE ÇIKAN TARİFİN BOYUT VE HİZALAMASI */
+
+html {
+    scroll-padding-top: 90px;
+}
+
+.signature.section {
+    width: min(1180px, 88%);
+    max-width: 1180px;
+    margin: 0 auto 90px;
+    padding: 0;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    border: 1px solid var(--line);
+    overflow: hidden;
+}
+
+.signature-image,
+.signature-image img {
+    width: 100%;
+    height: 460px;
+    min-height: 0;
+}
+
+.signature-image img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.signature-content {
+    min-width: 0;
+    padding: 46px clamp(28px, 4.5vw, 64px);
+}
+
+.signature-content h2 {
+    font-size: clamp(44px, 4.6vw, 64px);
+}
+
+@media (max-width: 1050px) {
+
+    .signature.section {
+        width: 90%;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .signature-image,
+    .signature-image img {
+        height: 410px;
+    }
+
+    .signature-content {
+        padding: 34px;
+    }
+
+    .signature-details {
+        gap: 12px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .signature.section {
+        width: 90%;
+        margin: 0 auto 65px;
+        grid-template-columns: 1fr;
+    }
+
+    .signature-image,
+    .signature-image img {
+        height: 260px;
+        min-height: 260px;
+    }
+
+    .signature-content {
+        padding: 34px 7%;
+    }
+
+    .signature-content h2 {
+        font-size: 49px;
+    }
+
+}
+
+/* TARİF KARTLARININ HİZALAMASI */
+
+.recipe-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.recipe-image-wrap {
+    height: 260px;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.recipe-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+/* Açıklamalar üç satır civarında tutulur.
+   max-height yöntemi geniş tarayıcı desteği sağlar. */
+
+.recipe-description {
+    max-height: 5.25em;
+    min-height: 4.8em;
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+.recipe-card-footer {
+    margin-top: auto;
+}
+
+.collection-card img {
+    object-fit: cover;
+}
+
+/* KLAVYEYLE GEZİNME VE ODAK GÖRÜNÜMÜ */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+}
+
+/* SON OKUNABİLİRLİK DÜZENLEMELERİ */
+
+.section-top > p {
+    font-size: 13px;
+}
+
+.recipe-search input {
+    font-size: 12px;
+}
+
+.filter-button,
+.favorite-filter {
+    font-size: 11px;
+}
+
+.recipe-meta {
+    font-size: 11px;
+}
+
+.recipe-card-footer span {
+    font-size: 11px;
+}
+
+.detail-button {
+    font-size: 12px;
+}
+
+.admin-actions button {
+    font-size: 11px;
+}
+
+/* AÇIK TEMA RENK KONTRASTI */
+
+body.light .section-label,
+body.light .nav a:hover,
+body.light .theme-button,
+body.light .detail-button,
+body.light .admin-actions button:hover {
+    color: var(--gold);
+}
+
+/* GÖRSEL YÜKLENEMEDİĞİNDE ARKA PLAN */
+
+.hero-image,
+.visual-banner-image {
+    background-color: #191919;
+}
+
+/* ÖNE ÇIKAN TARİF BUTONU PASİF DURUMU */
+
+#signatureButton:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+/* ANİMASYON HASSASİYETİ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+}
